@@ -148,7 +148,7 @@ public class AutoReconnect {
         // wait first for initial delay
         EXECUTOR_SERVICE.schedule(
             () -> {
-                player.sendMessage(Text.of(messages.next()));
+                player.networkHandler.sendChatMessage(messages.next());
                 sendMessages(player, messages);
             },
             getConfig().getAutoMessages().getDelay(),
