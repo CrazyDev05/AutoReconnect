@@ -22,9 +22,10 @@ public class MultiplayerReconnectHandler extends ReconnectHandler {
     @Override
     public void reconnect() {
         ConnectScreen.connect(
-            new MultiplayerScreen(new TitleScreen()),
-            MinecraftClient.getInstance(),
-            ServerAddress.parse(serverInfo.address),
-            serverInfo);
+                new MultiplayerScreen(new TitleScreen()),
+                MinecraftClient.getInstance(),
+                ServerAddress.parse(serverInfo.address),
+                serverInfo,
+                false);
     }
 }

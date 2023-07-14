@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[39,)"
+loaderVersion="[47,)"
 license="CC0-1.0"
 issueTrackerURL="https://github.com/ZekerZhayard/AutoReconnect/issues"
 
@@ -20,20 +20,20 @@ By default, it will make 4 attempts after 3, 10, 30 and 60 seconds.
 [[dependencies.autoreconnect]]
 modId="forge"
 mandatory=true
-versionRange="[39.0,41.0)"
+versionRange="[47.0,48.0)"
 ordering="NONE"
 side="CLIENT"
 
 [[dependencies.autoreconnect]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.18.1,1.19)"
+versionRange="[1.20.1,1.20.2)"
 ordering="NONE"
 side="CLIENT"
 
 [[dependencies.autoreconnect]]
 modId="cloth_config"
 mandatory=true
-versionRange="[6.0.0,)"
+versionRange="[11.1.106,)"
 ordering="NONE"
 side="CLIENT"

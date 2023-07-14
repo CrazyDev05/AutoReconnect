@@ -3,10 +3,10 @@ package autoreconnect.mixin;
 import autoreconnect.AutoReconnect;
 import net.minecraft.client.gui.screen.DisconnectedScreen;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ScreenTexts;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.world.SelectWorldScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -40,7 +40,7 @@ public class DisconnectedScreenMixin extends Screen {
     private void init(CallbackInfo info) {
         if (AutoReconnect.getInstance().isPlayingSingleplayer()) {
             // change back button text to "Back" instead of "Back to Server List" bcs of bug fix above
-            ((ButtonWidget) children().get(0)).setMessage(ScreenTexts.BACK);
+            ((ButtonWidget) children().get(2)).setMessage(ScreenTexts.BACK);
         }
     }
 

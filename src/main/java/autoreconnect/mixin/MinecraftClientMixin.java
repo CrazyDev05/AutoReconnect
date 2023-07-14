@@ -4,6 +4,9 @@ import autoreconnect.AutoReconnect;
 import autoreconnect.reconnect.SingleplayerReconnectHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.resource.ResourcePackManager;
+import net.minecraft.server.SaveLoader;
+import net.minecraft.world.level.storage.LevelStorage;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,9 +20,10 @@ public class MinecraftClientMixin {
     @Shadow
     private Screen currentScreen;
 
+
     @Inject(at = @At("HEAD"), method = "startIntegratedServer")
-    private void startIntegratedServer(String worldName, CallbackInfo info) {
-        AutoReconnect.getInstance().setReconnectHandler(new SingleplayerReconnectHandler(worldName));
+    private void startIntegratedServer(String levelName, LevelStorage.Session session, ResourcePackManager dataPackManager, SaveLoader saveLoader, boolean newWorld, CallbackInfo info) {
+        AutoReconnect.getInstance().setReconnectHandler(new SingleplayerReconnectHandler(levelName));
     }
 
     @Inject(method = "setScreen", at = @At(value = "FIELD", opcode = PUTFIELD,
